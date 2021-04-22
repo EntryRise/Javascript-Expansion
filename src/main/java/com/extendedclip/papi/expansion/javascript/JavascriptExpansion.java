@@ -79,6 +79,10 @@ public class JavascriptExpansion extends PlaceholderExpansion implements Cacheab
     public String getVersion() {
         return VERSION;
     }
+    
+    public boolean getDebug() {
+    	return debug;
+    }
 
     @Override
     public boolean register() {

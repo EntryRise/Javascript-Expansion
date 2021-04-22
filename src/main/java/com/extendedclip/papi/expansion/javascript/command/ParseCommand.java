@@ -3,6 +3,9 @@ package com.extendedclip.papi.expansion.javascript.command;
 import com.extendedclip.papi.expansion.javascript.ExpansionUtils;
 import com.extendedclip.papi.expansion.javascript.JavascriptExpansion;
 import com.extendedclip.papi.expansion.javascript.JavascriptPlaceholder;
+
+import me.clip.placeholderapi.PlaceholderAPI;
+
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
@@ -21,6 +24,12 @@ public class ParseCommand extends ICommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+    	
+    	if (!expansion.getDebug()) {
+            ExpansionUtils.sendMsg(sender, "&cSecurity Violation! This feature is only available in debug mode!");
+            return;
+    	}
+    	
         if (args.length < 2) {
             ExpansionUtils.sendMsg(sender, "&cIncorrect usage! &f/" + command + " parse [me/player] [code]");
             return;
